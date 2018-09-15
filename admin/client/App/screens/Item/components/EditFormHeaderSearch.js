@@ -5,6 +5,7 @@ import { findDOMNode } from 'react-dom';
 import { css } from 'glamor';
 import { FormInput, Glyph, GlyphButton } from '../../../elemental';
 import theme from '../../../../theme';
+import { EditFormHeaderSearch as locale } from '../../../../locales/zh-CN';
 
 class EditFormHeaderSearch extends Component {
 	constructor () {
@@ -41,7 +42,7 @@ class EditFormHeaderSearch extends Component {
 					onBlur={() => this.setState({ focused: false })}
 					onChange={onChange}
 					onKeyUp={onKeyUp}
-					placeholder="Search"
+					placeholder={locale.search}
 					ref="target"
 					type="search"
 					value={value}
@@ -60,7 +61,7 @@ class EditFormHeaderSearch extends Component {
 				style={{ paddingLeft: '0.7em' }}
 				data-e2e-search-icon
 				>
-				Search
+				{locale.search}
 			</GlyphButton>
 		);
 	}

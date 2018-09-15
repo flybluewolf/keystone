@@ -9,6 +9,7 @@ import { Link } from 'react-router';
 
 import Drilldown from './Drilldown';
 import { GlyphButton, ResponsiveText } from '../../../elemental';
+import { EditFormHeader as locale } from '../../../../locales/zh-CN';
 
 export const EditFormHeader = React.createClass({
 	displayName: 'EditFormHeader',
@@ -143,7 +144,7 @@ export const EditFormHeader = React.createClass({
 		}
 		return (
 			<GlyphButton data-e2e-item-create-button="true" color="success" glyph="plus" position="left" {...props}>
-				<ResponsiveText hiddenXS={`New ${singular}`} visibleXS="Create" />
+				<ResponsiveText hiddenXS={`${locale.New}${singular}`} visibleXS={locale.Create} />
 			</GlyphButton>
 		);
 	},

@@ -1,9 +1,10 @@
 import React from 'react';
 import { SegmentedControl } from '../../../admin/client/App/elemental';
+import { BooleanFilter as locale } from '../../locales/zh-CN';
 
 const VALUE_OPTIONS = [
-	{ label: 'Is Checked', value: true },
-	{ label: 'Is NOT Checked', value: false },
+	{ label: locale["Is Checked"] , value: true },
+	{ label: locale["Is NOT Checked"], value: false },
 ];
 
 function getDefaultValue () {

@@ -5,6 +5,7 @@ import vkey from 'vkey';
 import Kbd from '../../../shared/Kbd';
 import Popout from '../../../shared/Popout';
 import PopoutList from '../../../shared/Popout/PopoutList';
+import { ListSort as locale } from '../../../../locales/zh-CN';
 
 var ListSort = React.createClass({
 	displayName: 'ListSort',
@@ -101,16 +102,16 @@ var ListSort = React.createClass({
 			<span>
 				{activeSortPath && (
 					<span>
-						<span style={{ color: '#999' }}> sorted by </span>
+						<span style={{ color: '#999' }}> {locale["sorted by"]} </span>
 						<a id="listHeaderSortButton" href="javascript:;" onClick={this.openPopout}>
 							{activeSortPath.label.toLowerCase()}
-							{activeSortPath.invert ? ' (descending)' : ''}
+							{activeSortPath.invert ? ` ${locale.descending}` : ''}
 							<span className="disclosure-arrow" />
 						</a>
 					</span>
 				)}
 				<Popout isOpen={this.state.popoutIsOpen} onCancel={this.closePopout} relativeToID="listHeaderSortButton">
-					<Popout.Header title="Sort" />
+					<Popout.Header title={locale.Sort} />
 
 					<Popout.Body scrollable>
 						<FormField style={formFieldStyles}>
@@ -118,7 +119,7 @@ var ListSort = React.createClass({
 								autoFocus
 								value={this.state.searchString}
 								onChange={this.updateSearch}
-								placeholder="Find a field..."
+								placeholder={locale["Find a field"]}
 							/>
 						</FormField>
 						<PopoutList>
@@ -127,7 +128,7 @@ var ListSort = React.createClass({
 					</Popout.Body>
 
 					<Popout.Footer>
-						<FormNote>Hold <Kbd>alt</Kbd> to toggle ascending/descending</FormNote>
+						<FormNote dangerouslySetInnerHTML={{__html: locale["Hold to toggle ascending/descending"]}}></FormNote>
 					</Popout.Footer>
 				</Popout>
 			</span>

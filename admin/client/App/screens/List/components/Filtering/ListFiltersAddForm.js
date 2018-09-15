@@ -3,6 +3,7 @@ import { findDOMNode } from 'react-dom';
 import Popout from '../../../../shared/Popout';
 
 import { Filters } from 'FieldTypes';
+import { ListFiltersAddForm as locale } from '../../../../../locales/zh-CN';
 
 var ListFiltersAddForm = React.createClass({
 	propTypes: {
@@ -61,9 +62,9 @@ var ListFiltersAddForm = React.createClass({
 				<Popout.Footer
 					ref="footer"
 					primaryButtonIsSubmit
-					primaryButtonLabel="Apply"
+					primaryButtonLabel={locale.Apply}
 					secondaryButtonAction={this.props.onCancel}
-					secondaryButtonLabel="Cancel" />
+					secondaryButtonLabel={locale.Cancel} />
 			</form>
 		);
 	},

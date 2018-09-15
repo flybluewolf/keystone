@@ -12,6 +12,7 @@ import ListDownloadForm from './ListDownloadForm';
 import ListHeaderSearch from './ListHeaderSearch';
 
 import ListFiltersAdd from './Filtering/ListFiltersAdd';
+import { ListHeaderToolbar as locale } from '../../../../locales/zh-CN';
 
 function ButtonDivider ({ style, ...props }) {
 	props.style = {
@@ -38,7 +39,7 @@ function CreateButton ({ listName, onClick, ...props }) {
 			<ResponsiveText
 				visibleSM="Create"
 				visibleMD="Create"
-				visibleLG={`Create ${listName}`}
+				visibleLG={`${locale.Create}${listName}`}
 			/>
 		</GlyphButton>
 	);

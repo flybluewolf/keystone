@@ -3,6 +3,7 @@ import { Chip } from '../../../../elemental';
 import Filter from './Filter';
 
 import { clearAllFilters } from '../../actions';
+import { ListFilters as locale } from '../../../../../locales/zh-CN';
 
 const ListFilters = ({ dispatch, filters }) => {
 
@@ -26,7 +27,7 @@ const ListFilters = ({ dispatch, filters }) => {
 		currentFilters.push(
 			<Chip
 				key="listFilters__clear"
-				label="Clear All"
+				label={locale["Clear All"]}
 				onClick={dispatchClearAllFilters}
 			/>
 		);

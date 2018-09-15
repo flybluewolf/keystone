@@ -7,6 +7,7 @@ import { FormInput } from '../../../elemental';
 import ListHeaderButton from './ListHeaderButton';
 
 import { setActiveColumns } from '../actions';
+import { ListColumnsForm as locale } from '../../../../locales/zh-CN';
 
 var ListColumnsForm = React.createClass({
 	displayName: 'ListColumnsForm',
@@ -92,17 +93,17 @@ var ListColumnsForm = React.createClass({
 					active={this.state.isOpen}
 					id="listHeaderColumnButton"
 					glyph="list-unordered"
-					label="Columns"
+					label={locale.Columns}
 					onClick={() => this.togglePopout(!this.state.isOpen)}
 				/>
 				<Popout isOpen={this.state.isOpen} onCancel={() => this.togglePopout(false)} relativeToID="listHeaderColumnButton">
-					<Popout.Header title="Columns" />
+					<Popout.Header title={locale.Columns} />
 					<Popout.Body scrollable>
 						<div style={formFieldStyles}>
 							<FormInput
 								autoFocus
 								onChange={this.updateSearch}
-								placeholder="Find a column..."
+								placeholder={locale["Find a column"]}
 								value={this.state.searchString}
 							/>
 						</div>
@@ -112,9 +113,9 @@ var ListColumnsForm = React.createClass({
 					</Popout.Body>
 					<Popout.Footer
 						primaryButtonAction={this.applyColumns}
-						primaryButtonLabel="Apply"
+						primaryButtonLabel={locale.Apply}
 						secondaryButtonAction={() => this.togglePopout(false)}
-						secondaryButtonLabel="Cancel" />
+						secondaryButtonLabel={locale.Cancel} />
 				</Popout>
 			</div>
 		);

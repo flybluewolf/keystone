@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { getFilterLabel as locale } from '../../../../../locales/zh-CN';
 
 const DATE_FORMAT = 'MMM D YYYY';
 const DATETIME_FORMAT = 'MMM D YYYY h:mm:ss';
@@ -11,7 +12,7 @@ function getFilterLabel (field, value) {
 		case 'boolean': {
 			return value.value
 				? label
-				: `NOT ${label}`;
+				: `${locale.NOT}${label}`;
 		}
 
 		// DATE
@@ -44,7 +45,7 @@ function getFilterLabel (field, value) {
 
 		// LOCATION
 		case 'location': {
-			const joiner = value.inverted ? 'does NOT match' : 'matches';
+			const joiner = value.inverted ? locale["does NOT match"] : locale.matches;
 
 			// Remove undefined values before rendering the template literal
 			const formattedValue = [
@@ -135,7 +136,7 @@ function getFilterLabel (field, value) {
 			} else if (value.mode === 'exactly') {
 				mode = value.inverted ? 'are NOT exactly' : 'are exactly';
 			} else if (value.mode === 'contains') {
-				mode = value.inverted ? 'do NOT contain' : 'contain';
+				mode = value.inverted ? locale["do NOT contain"] : locale.contain;
 			}
 
 			return `${presence} ${label} ${mode} "${value.value}"`;
@@ -151,11 +152,11 @@ function getFilterLabel (field, value) {
 function resolveNumberFormat (value, conjunction = 'is') {
 	let mode = '';
 	if (value.mode === 'equals') mode = conjunction;
-	else if (value.mode === 'gt') mode = `${conjunction} greater than`;
-	else if (value.mode === 'lt') mode = `${conjunction} less than`;
+	else if (value.mode === 'gt') mode = `${conjunction}${locale["greater than"]}`;
+	else if (value.mode === 'lt') mode = `${conjunction}${locale["less than"]}`;
 
 	const formattedValue = value.mode === 'between'
-		? `is between ${value.value.min} and ${value.value.max}`
+		? locale["is between %s and %s"].replace(/%s/g, value.value.min).replace(/%s/g, value.value.max)
 		: value.value;
 
 	return `${mode} ${formattedValue}`;

@@ -4,6 +4,7 @@ import theme from '../../../../theme';
 import { darken } from '../../../../utils/color';
 
 import { FormInput, Glyph } from '../../../elemental';
+import { ListHeaderSearch as locale } from '../../../../locales/zh-CN';
 
 function ListHeaderSearch ({
 	focusInput,
@@ -19,7 +20,7 @@ function ListHeaderSearch ({
 				data-search-input-field
 				onChange={handleChange}
 				onKeyUp={handleKeyup}
-				placeholder="Search"
+				placeholder={locale.Search}
 				value={value}
 			/>
 			<button

@@ -4,6 +4,7 @@
 
 import React, { PropTypes } from 'react';
 import { Button, Modal } from '../elemental';
+import { ConfirmationDialog as locale } from '../../locales/zh-CN';
 
 function ConfirmationDialog ({
 	cancelLabel,
@@ -53,8 +54,8 @@ ConfirmationDialog.propTypes = {
 	onConfirmation: PropTypes.func,
 };
 ConfirmationDialog.defaultProps = {
-	cancelLabel: 'Cancel',
-	confirmationLabel: 'Okay',
+	cancelLabel: locale.Cancel,
+	confirmationLabel: locale.Okay,
 	confirmationType: 'danger',
 	isOpen: false,
 };

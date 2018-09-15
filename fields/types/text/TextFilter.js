@@ -1,6 +1,8 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 
+import { TextFilter as locale } from '../../locales/zh-CN';
+
 import {
 	FormField,
 	FormInput,
@@ -9,15 +11,15 @@ import {
 } from '../../../admin/client/App/elemental';
 
 const INVERTED_OPTIONS = [
-	{ label: 'Matches', value: false },
-	{ label: 'Does NOT Match', value: true },
+	{ label: locale.Matches, value: false },
+	{ label: locale["Does NOT Match"], value: true },
 ];
 
 const MODE_OPTIONS = [
-	{ label: 'Contains', value: 'contains' },
-	{ label: 'Exactly', value: 'exactly' },
-	{ label: 'Begins with', value: 'beginsWith' },
-	{ label: 'Ends with', value: 'endsWith' },
+	{ label: locale.Contains, value: 'contains' },
+	{ label: locale.Exactly, value: 'exactly' },
+	{ label: locale["Begins with"], value: 'beginsWith' },
+	{ label: locale["Ends with"], value: 'endsWith' },
 ];
 
 function getDefaultValue () {

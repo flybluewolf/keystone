@@ -25,6 +25,7 @@ import InvalidFieldType from '../../../shared/InvalidFieldType';
 import { deleteItem } from '../actions';
 
 import { upcase } from '../../../../utils/string';
+import { EditForm as locale } from '../../../../locales/zh-CN';
 
 function getNameFromData (data) {
 	if (typeof data === 'object') {
@@ -162,7 +163,7 @@ var EditForm = React.createClass({
 				this.setState({
 					alerts: {
 						success: {
-							success: 'Your changes have been saved successfully',
+							success: locale["Your changes have been saved successfully"],
 						},
 					},
 					lastValues: this.state.values,
@@ -277,7 +278,7 @@ var EditForm = React.createClass({
 		}
 
 		const { loading } = this.state;
-		const loadingButtonText = loading ? 'Saving' : 'Save';
+		const loadingButtonText = loading ? locale.Saving : locale.Save;
 
 		// Padding must be applied inline so the FooterBar can determine its
 		// innerHeight at runtime. Aphrodite's styling comes later...
@@ -299,16 +300,16 @@ var EditForm = React.createClass({
 					{!this.props.list.noedit && (
 						<Button disabled={loading} onClick={this.toggleResetDialog} variant="link" color="cancel" data-button="reset">
 							<ResponsiveText
-								hiddenXS="reset changes"
-								visibleXS="reset"
+								hiddenXS={locale["reset changes"]}
+								visibleXS={locale.reset}
 							/>
 						</Button>
 					)}
 					{!this.props.list.nodelete && (
 						<Button disabled={loading} onClick={this.toggleDeleteDialog} variant="link" color="delete" style={styles.deleteButton} data-button="delete">
 							<ResponsiveText
-								hiddenXS={`delete ${this.props.list.singular.toLowerCase()}`}
-								visibleXS="delete"
+								hiddenXS={`${locale.delete}${this.props.list.singular.toLowerCase()}`}
+								visibleXS={locale.delete}
 							/>
 						</Button>
 					)}

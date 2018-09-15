@@ -7,6 +7,8 @@ import {
 	Spinner,
 } from '../../../elemental';
 
+import { ListManagement as locale } from '../../../../locales/zh-CN';
+
 function ListManagement ({
 	checkedItemCount,
 	handleDelete,
@@ -36,7 +38,7 @@ function ListManagement ({
 				onClick={handleDelete}
 				position="left"
 				variant="link">
-				Delete
+				{locale.Delete}
 			</GlyphButton>
 		</Section>
 	);
@@ -50,8 +52,8 @@ function ListManagement ({
 			<Button
 				active={allVisibleButtonIsActive}
 				onClick={() => handleSelect('all')}
-				title="Select all rows (including those not visible)">
-				{selectAllItemsLoading ? <Spinner/> : 'All'} <small style={buttonNoteStyles}>({itemCount})</small>
+				title={locale["Select all rows (including those not visible)"]}>
+				{selectAllItemsLoading ? <Spinner/> : locale.All} <small style={buttonNoteStyles}>({itemCount})</small>
 			</Button>
 		</Section>
 	);
@@ -61,13 +63,13 @@ function ListManagement ({
 			<Group contiguous>
 				{selectAllButton}
 				<Section>
-					<Button active={pageVisibleButtonIsActive} onClick={() => handleSelect('visible')} title="Select all rows">
-						{itemCount > itemsPerPage ? 'Page ' : 'All '}
+					<Button active={pageVisibleButtonIsActive} onClick={() => handleSelect('visible')} title={locale["Select all rows"]}>
+						{itemCount > itemsPerPage ? `${locale.Page} ` : `${locale.All} `}
 						<small style={buttonNoteStyles}>({itemCount > itemsPerPage ? itemsPerPage : itemCount})</small>
 					</Button>
 				</Section>
 				<Section>
-					<Button active={noneButtonIsActive} onClick={() => handleSelect('none')} title="Deselect all rows">None</Button>
+					<Button active={noneButtonIsActive} onClick={() => handleSelect('none')} title={locale["Deselect all rows"]}>{locale.None}</Button>
 				</Section>
 			</Group>
 		</Section>
@@ -77,7 +79,7 @@ function ListManagement ({
 	const selectedCountText = isOpen ? (
 		<Section>
 			<span style={{ color: '#666', display: 'inline-block', lineHeight: '2.4em', margin: 1 }}>
-				{checkedItemCount} selected
+				{checkedItemCount} {locale.selected}
 			</span>
 		</Section>
 	) : null;
@@ -88,7 +90,7 @@ function ListManagement ({
 			<Group style={{ float: 'left', marginRight: '.75em', marginBottom: 0 }}>
 				<Section>
 					<Button active={isOpen} onClick={() => handleToggle(!isOpen)}>
-						Manage
+						{locale.Manage}
 					</Button>
 				</Section>
 				{selectButtons}

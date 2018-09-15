@@ -10,6 +10,7 @@ import AlertMessages from './AlertMessages';
 import { Fields } from 'FieldTypes';
 import InvalidFieldType from './InvalidFieldType';
 import { Button, Form, Modal } from '../elemental';
+import { CreateForm as locale } from '../../locales/zh-CN';
 
 const CreateForm = React.createClass({
 	displayName: 'CreateForm',
@@ -84,7 +85,7 @@ const CreateForm = React.createClass({
 						values: {},
 						alerts: {
 							success: {
-								success: 'Item created',
+								success: locale["Item created"],
 							},
 						},
 					});
@@ -92,7 +93,7 @@ const CreateForm = React.createClass({
 			} else {
 				if (!err) {
 					err = {
-						error: 'connection error',
+						error: locale["connection error"],
 					};
 				}
 				// If we get a database error, show the database error message
@@ -153,7 +154,7 @@ const CreateForm = React.createClass({
 		return (
 			<Form layout="horizontal" onSubmit={this.submitForm}>
 				<Modal.Header
-					text={'Create a new ' + list.singular}
+					text={locale["Create a new"] + list.singular}
 					showCloseButton
 				/>
 				<Modal.Body>
@@ -162,7 +163,7 @@ const CreateForm = React.createClass({
 				</Modal.Body>
 				<Modal.Footer>
 					<Button color="success" type="submit" data-button-type="submit">
-						Create
+						{locale.Create}
 					</Button>
 					<Button
 						variant="link"
@@ -170,7 +171,7 @@ const CreateForm = React.createClass({
 						data-button-type="cancel"
 						onClick={this.props.onCancel}
 					>
-						Cancel
+						{locale.Cancel}
 					</Button>
 				</Modal.Footer>
 			</Form>

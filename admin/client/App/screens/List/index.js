@@ -7,6 +7,7 @@ import React from 'react';
 // import { findDOMNode } from 'react-dom'; // TODO re-implement focus when ready
 import numeral from 'numeral';
 import { connect } from 'react-redux';
+import { List as locale } from '../../../locales/zh-CN';
 
 import {
 	BlankState,
@@ -160,10 +161,10 @@ const ListView = React.createClass({
 				label: 'Delete',
 				body: (
 					<div>
-						Are you sure you want to delete {itemCount}?
+						{locale["Are you sure you want to delete"]}{itemCount}?
 						<br />
 						<br />
-						This cannot be undone.
+						{locale["This cannot be undone"]}
 					</div>
 				),
 				onConfirmation: () => {
@@ -346,13 +347,13 @@ const ListView = React.createClass({
 		this.setState({
 			confirmationDialog: {
 				isOpen: true,
-				label: 'Delete',
+				label: locale.Delete,
 				body: (
 					<div>
-						Are you sure you want to delete <strong>{item.name}</strong>?
+						{locale["Are you sure you want to delete"]} <strong>{item.name}</strong>?
 						<br />
 						<br />
-						This cannot be undone.
+						{locale["This cannot be undone"]}
 					</div>
 				),
 				onConfirmation: () => {
@@ -413,7 +414,7 @@ const ListView = React.createClass({
 		// display the button if create allowed
 		const button = !currentList.nocreate ? (
 			<GlyphButton color="success" glyph="plus" position="left" onClick={onClick} data-e2e-list-create-button="no-results">
-				Create {currentList.singular}
+				{locale.Create}{currentList.singular}
 			</GlyphButton>
 		) : null;
 
@@ -422,11 +423,11 @@ const ListView = React.createClass({
 				{(this.props.error) ? (
 					<FlashMessages
 						messages={{ error: [{
-							title: "There is a problem with the network, we're trying to reconnect...",
+							title: locale["There is a problem with the network, we are trying to reconnect"],
 						}] }}
 					/>
 				) : null}
-				<BlankState heading={`No ${this.props.currentList.plural.toLowerCase()} found...`} style={{ marginTop: 40 }}>
+				<BlankState heading={locale["No found"].replace('%s', this.props.currentList.plural.toLowerCase())} style={{ marginTop: 40 }}>
 					{button}
 				</BlankState>
 			</Container>
@@ -458,7 +459,7 @@ const ListView = React.createClass({
 					{(this.props.error) ? (
 						<FlashMessages
 							messages={{ error: [{
-								title: "There is a problem with the network, we're trying to reconnect..",
+								title: locale["There is a problem with the network, we are trying to reconnect"],
 							}] }}
 						/>
 					) : null}
@@ -506,7 +507,7 @@ const ListView = React.createClass({
 					style={{ marginBottom: 20 }}
 				/>
 				<h2 style={{ color: 'inherit' }}>
-					No {this.props.currentList.plural.toLowerCase()}{matching}
+					{locale["No found matching"]}
 				</h2>
 			</BlankState>
 		);
