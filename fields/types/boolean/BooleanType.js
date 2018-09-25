@@ -9,7 +9,7 @@ var util = require('util');
  */
 function boolean (list, path, options) {
 	this._nativeType = Boolean;
-	this._properties = ['indent'];
+	this._properties = ['indent', 'align'];
 	this._fixedSize = 'full';
 	this.indent = (options.indent) ? true : false;
 	boolean.super_.call(this, list, path, options);

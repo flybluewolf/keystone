@@ -7,7 +7,7 @@ module.exports = {
 		'connection error': '连接失败'
 	},
 	EditForm: {
-		'reset changes': '撤销改变',
+		'reset changes': '撤销变更',
 		reset: '撤销',
 		delete: '删除',
 		Save: '保存',
@@ -28,7 +28,7 @@ module.exports = {
 		'This cannot be undone': '这个操作无法撤销',
 		Delete: '删除',
 		'There is a problem with the network, we are trying to reconnect': '网络连接出现问题，正在尝试重新连接...',
-		'No found matching': '未找到匹配记录' 
+		'No found matching': '未找到匹配记录'
 	},
 	ListManagement: {
 		Manage: '管理',
@@ -93,5 +93,16 @@ module.exports = {
 	ConfirmationDialog: {
 		Cancel: '取消',
 		Okay: '确认'
+	},
+	Pagination: {
+		'No records': '无记录',
+		'Showing %s to %s of %s': '%s - %s/共%s',
+		records: ' 条记录'
+	},
+	ItemList: {
+		Relationships: '关联数据'
+	},
+	RelatedItemsList: {
+		'No related': '无关联数据'
 	}
 };

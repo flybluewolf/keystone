@@ -2,24 +2,28 @@ import { css } from 'glamor';
 import React, { Component, PropTypes } from 'react';
 import Page from './page';
 import theme from '../../../theme';
+import { Pagination as locale } from '../../../locales/zh-CN'
 
 class Pagination extends Component {
 	renderCount () {
 		let count = '';
 		const { currentPage, pageSize, plural, singular, total } = this.props;
 		if (!total) {
-			count = 'No ' + (plural || 'records');
+			// count = 'No ' + (plural || 'records');
+			count = locale["No records"];
 		} else if (total > pageSize) {
 			let start = (pageSize * (currentPage - 1)) + 1;
 			let end = Math.min(start + pageSize - 1, total);
-			count = `Showing ${start} to ${end} of ${total}`;
+			// count = `Showing ${start} to ${end} of ${total}`;
+			count = locale["Showing %s to %s of %s"].replace(/%s/g, start).replace(/%s/g, end).replace(/%s/g, total);
 		} else {
-			count = 'Showing ' + total;
-			if (total > 1 && plural) {
-				count += ' ' + plural;
-			} else if (total === 1 && singular) {
-				count += ' ' + singular;
-			}
+			// count = 'Showing ' + total;
+			// if (total > 1 && plural) {
+			// 	count += ' ' + plural;
+			// } else if (total === 1 && singular) {
+			// 	count += ' ' + singular;
+			// }
+			count = `${total}${locale.records}`;
 		}
 		return (
 			<div className={css(classes.count)} data-e2e-pagination-count>{count}</div>

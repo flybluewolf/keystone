@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { SegmentedControl } from '../../../admin/client/App/elemental';
+import { PasswordFilter as locale } from '../../locales/zh-CN';
 
 const EXISTS_OPTIONS = [
-	{ label: 'Is Set', value: true },
-	{ label: 'Is NOT Set', value: false },
+	{ label: locale["Is Set"], value: true },
+	{ label: locale["Is NOT Set"], value: false },
 ];
 
 function getDefaultValue () {

@@ -10,9 +10,11 @@ import PopoutList from '../../../admin/client/App/shared/Popout/PopoutList';
 import Kbd from '../../../admin/client/App/shared/Kbd';
 import bindFunctions from '../../utils/bindFunctions';
 
+import { SelectFilter as locale } from '../../locales/zh-CN';
+
 const INVERTED_OPTIONS = [
-	{ label: 'Matches', value: false },
-	{ label: 'Does NOT Match', value: true },
+	{ label: locale.Matches, value: false },
+	{ label: locale["Does NOT Match"], value: true },
 ];
 
 function getDefaultValue () {
@@ -181,10 +183,10 @@ class SelectFilter extends Component {
 				</FormField>
 				<div style={fieldStyles}>
 					<Button size="xsmall" onClick={this.toggleAllOptions} style={{ padding: 0, width: 50 }}>
-						{indeterminate ? 'All' : 'None'}
+						{indeterminate ? locale.All : locale.None}
 					</Button>
-					<FormNote style={{ margin: 0 }}>
-						Hold <Kbd>{metaKeyLabel}</Kbd> to select multiple options
+					<FormNote style={{ margin: 0 }} dangerouslySetInnerHTML={{__html: locale["Hold to select multiple options"].replace(/%s/g, metaKeyLabel)}}>
+					
 					</FormNote>
 				</div>
 				{this.renderOptions()}

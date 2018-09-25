@@ -26,7 +26,8 @@ key.prototype.validateRequiredInput = TextType.prototype.validateRequiredInput;
  * Generates a valid key from a string
  */
 key.prototype.generateKey = function (str) {
-	return utils.slug(String(str), this.separator);
+	const key = utils.slug(String(str), this.separator);
+	return this.options.uppercase ? key.toUpperCase() : key;
 };
 
 /**

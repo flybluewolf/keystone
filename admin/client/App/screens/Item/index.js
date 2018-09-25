@@ -18,6 +18,8 @@ import EditFormHeader from './components/EditFormHeader';
 import RelatedItemsList from './components/RelatedItemsList/RelatedItemsList';
 // import FlashMessages from '../../shared/FlashMessages';
 
+import { ItemList as locale } from '../../../locales/zh-CN';
+
 import {
 	selectItem,
 	loadItemData,
@@ -81,7 +83,7 @@ var ItemView = React.createClass({
 		return (
 			<div className="Relationships">
 				<Container>
-					<h2>Relationships</h2>
+					<h2>{locale.Relationships}</h2>
 					{keys.map(key => {
 						const relationship = relationships[key];
 						const refList = listsByKey[relationship.ref];

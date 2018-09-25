@@ -158,7 +158,7 @@ const ListView = React.createClass({
 		this.setState({
 			confirmationDialog: {
 				isOpen: true,
-				label: 'Delete',
+				label: locale.Delete,
 				body: (
 					<div>
 						{locale["Are you sure you want to delete"]}{itemCount}?

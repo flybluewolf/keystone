@@ -7,6 +7,8 @@ import {
 	InlineGroupSection as Section,
 } from '../../../admin/client/App/elemental';
 
+import { PasswordField as locale } from '../../locales/zh-CN';
+
 module.exports = Field.create({
 
 	displayName: 'PasswordField',
@@ -57,7 +59,7 @@ module.exports = Field.create({
 						autoComplete="off"
 						name={this.getInputName(this.props.path)}
 						onChange={this.valueChanged.bind(this, 'password')}
-						placeholder="New password"
+						placeholder={locale["New password"]}
 						ref="focusTarget"
 						type="password"
 						value={this.state.password}
@@ -68,13 +70,13 @@ module.exports = Field.create({
 						autoComplete="off"
 						name={this.getInputName(this.props.paths.confirm)}
 						onChange={this.valueChanged.bind(this, 'confirm')}
-						placeholder="Confirm new password" value={this.state.confirm}
+						placeholder={locale["Confirm new password"]} value={this.state.confirm}
 						type="password"
 					/>
 				</Section>
 				{this.state.passwordIsSet ? (
 					<Section>
-						<Button onClick={this.onCancel}>Cancel</Button>
+						<Button onClick={this.onCancel}>{locale.Cancel}</Button>
 					</Section>
 				) : null}
 			</Group>
@@ -83,8 +85,8 @@ module.exports = Field.create({
 
 	renderChangeButton () {
 		var label = this.state.passwordIsSet
-			? 'Change Password'
-			: 'Set Password';
+			? locale["Change Password"]
+			: locale["Change Password"];
 
 		return (
 			<Button ref="focusTarget" onClick={this.showChangeUI}>{label}</Button>

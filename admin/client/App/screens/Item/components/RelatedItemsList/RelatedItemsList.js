@@ -8,6 +8,8 @@ import ListRow from './RelatedItemsListRow';
 import { loadRelationshipItemData } from '../../actions';
 import { TABLE_CONTROL_COLUMN_WIDTH } from '../../../../../constants';
 
+import { RelatedItemsList as locale } from '../../../../../locales/zh-CN';
+
 const RelatedItemsList = React.createClass({
 	propTypes: {
 		dispatch: React.PropTypes.func.isRequired,
@@ -93,7 +95,7 @@ const RelatedItemsList = React.createClass({
 			</div>
 		) : (
 			<BlankState
-				heading={`No related ${this.props.refList.plural.toLowerCase()}...`}
+				heading={locale["No related"]}
 				style={{ marginBottom: '3em' }}
 			/>
 		);

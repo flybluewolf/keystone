@@ -4,6 +4,7 @@ import {
 	FormInput,
 	Grid,
 } from '../../../admin/client/App/elemental';
+import { NameField as locale } from '../../locales/zh-CN';
 
 const NAME_SHAPE = {
 	first: PropTypes.string,
@@ -71,7 +72,7 @@ module.exports = Field.create({
 						autoComplete="off"
 						name={this.getInputName(paths.first)}
 						onChange={this.changeFirst}
-						placeholder="First name"
+						placeholder={locale["First name"]}
 						value={value.first}
 					/>
 				</Grid.Col>
@@ -80,7 +81,7 @@ module.exports = Field.create({
 						autoComplete="off"
 						name={this.getInputName(paths.last)}
 						onChange={this.changeLast}
-						placeholder="Last name"
+						placeholder={locale["Last name"]}
 						value={value.last}
 					/>
 				</Grid.Col>

@@ -8,11 +8,13 @@ import {
 	Grid,
 } from '../../../admin/client/App/elemental';
 
+import { NumberFilter as locale } from '../../locales/zh-CN';
+
 const MODE_OPTIONS = [
-	{ label: 'Exactly', value: 'equals' },
-	{ label: 'Greater Than', value: 'gt' },
-	{ label: 'Less Than', value: 'lt' },
-	{ label: 'Between', value: 'between' },
+	{ label: locale.Exactly, value: 'equals' },
+	{ label: locale["Greater Than"], value: 'gt' },
+	{ label: locale["Less Than"], value: 'lt' },
+	{ label: locale.Between, value: 'between' },
 ];
 
 function getDefaultValue () {
@@ -86,7 +88,7 @@ var NumberFilter = React.createClass({
 	renderControls (mode) {
 		let controls;
 		const { field } = this.props;
-		const placeholder = field.label + ' is ' + mode.label.toLowerCase() + '...';
+		const placeholder = field.label + locale.is + mode.label.toLowerCase() + '...';
 
 		if (mode.value === 'between') {
 			controls = (
@@ -94,7 +96,7 @@ var NumberFilter = React.createClass({
 					<Grid.Col>
 						<FormInput
 							onChange={this.handleChangeBuilder('minValue')}
-							placeholder="Min."
+							placeholder={locale.Min}
 							ref="focusTarget"
 							type="number"
 						/>
@@ -102,7 +104,7 @@ var NumberFilter = React.createClass({
 					<Grid.Col>
 						<FormInput
 							onChange={this.handleChangeBuilder('maxValue')}
-							placeholder="Max."
+							placeholder={locale.Max}
 							type="number"
 						/>
 					</Grid.Col>

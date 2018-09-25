@@ -3,6 +3,8 @@ import React from 'react';
 import Select from 'react-select';
 import { FormInput } from '../../../admin/client/App/elemental';
 
+import { SelectField as locale } from '../../locales/zh-CN';
+
 /**
  * TODO:
  * - Custom path support
@@ -60,6 +62,7 @@ module.exports = Field.create({
 					value={value}
 					options={options}
 					onChange={this.valueChanged}
+					placeholder={locale.Select}
 				/>
 			</div>
 		);
